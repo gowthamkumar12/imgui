@@ -14,3 +14,11 @@ ADD_LIBRARY(ImGui STATIC
     imgui_widgets.cpp
     imgui.cpp
 )
+
+# Configuration-specific definitions
+TARGET_COMPILE_DEFINITIONS(
+  ImGui
+  PRIVATE
+    $<$<CONFIG:Debug>:DEBUG>
+    $<$<CONFIG:Release>:RELEASE>
+)
